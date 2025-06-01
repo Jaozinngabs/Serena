@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja Serena</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <!-- Logo à esquerda -->
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" alt="Loja Serena" height="40"></a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <!-- Menu de categorias com dropdown -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            Categorias
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" data-category="camisas">Camisas</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="tenis">Tênis</a></li>
+                            <li><a class="dropdown-item" href="#" data-category="acessorios">Acessórios</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <!-- Barra de busca funcional -->
+                <form class="d-flex me-3" id="searchForm">
+                    <input class="form-control me-2" type="search" placeholder="Buscar produtos..." aria-label="Buscar" id="searchInput">
+                    <button class="btn btn-outline-light" type="submit">Buscar</button>
+                </form>
+                
+                <!-- Botão de Login/Logout -->
+                <div id="authSection">
+                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#loginModal" id="loginButton">Login</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <main class="container my-5">
+        <h1 class="mb-4">Bem-vindo à Loja Serena</h1>
+        
+        <!-- Filtros -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <div class="input-group">
+                    <select class="form-select" id="categoryFilter">
+                        <option value="all">Todas categorias</option>
+                        <option value="camisas">Camisas</option>
+                        <option value="tenis">Tênis</option>
+                        <option value="acessorios">Acessórios</option>
+                    </select>
+                    <button class="btn btn-primary" id="filterButton">Filtrar</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lista de produtos -->
+        <div class="row" id="productsContainer">
+            <!-- Produtos serão carregados via JavaScript -->
+        </div>
+    </main>
+
+    <!-- Modal de Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="alert alert-danger d-none" id="loginError"></div>
+                        <button type="submit" class="btn btn-primary">Entrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
